@@ -4,17 +4,28 @@
         <link rel="icon" type="images/icon" href="8.jpg">
     </head>
         <body>
+            <ol id="o"></ol>
+            <button id="b"CLICK HERE TO DISPLAY LIST></button>
+
             <script>
                 var v1=new XMLHttpRequest();
                 v1.onreadystatechange=function()
                 {
                     if(this.readystate==4 && this.status==200)
                 {
-                    var v2=v1.responseText;
-                    console.log(v2.hello1);
+                    var v2=JSON.parse(v1.responseText);
+                    var v3=v2.a;
+                    var t=" ";
+                    for(var i=0;i<v3.length;i++){
+                        t+-"<li>"+v3[i].name+v3[i].age+"</li>";
+                    }
+                    document.getElementById("b").addEventListener("click",n);
+                    function n(){
+                        document.getElementById("o").innerHTML=t;
+                    }
                 }
                 };
-                v1.open("GET","hello1.json",true);
+                v1.open("GET","a.json",true);
                 v1.send()
             </script>
         </body>
