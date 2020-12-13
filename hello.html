@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>JSON file</title>
+        <link rel="icon" type="images/icon" href="8.jpg">
+    </head>
+        <body>
+            <script>
+                var v1=new XMLHttpRequest();
+                v1.onreadystatechange=function()
+                {
+                    if(this.readystate==4 && this.status==200)
+                {
+                    var v2=v1.responseText;
+                    console.log(v2.hello1);
+                }
+                };
+                v1.open("GET","hello1.json",true);
+                v1.send()
+            </script>
+        </body>
+    </html>
